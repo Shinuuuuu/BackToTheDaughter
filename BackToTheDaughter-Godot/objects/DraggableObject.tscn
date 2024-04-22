@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3cqb6ix1h4i"]
+
+[ext_resource type="Script" path="res://scripts/DraggableObject.gd" id="1_pic5x"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sbjow"]
+size = Vector2(1.75, 1.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srw7q"]
+size = Vector2(1.75, 1.75)
+
+[node name="DraggableObject" type="Node2D"]
+script = ExtResource("1_pic5x")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(104, 104)
+mesh = SubResource("QuadMesh_sbjow")
+
+[node name="Area2D" type="Area2D" parent="MeshInstance2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Area2D"]
+shape = SubResource("RectangleShape2D_srw7q")
+one_way_collision_margin = 0.0
+
+[connection signal="input_event" from="MeshInstance2D/Area2D" to="." method="_on_area_2d_input_event"]
