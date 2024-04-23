@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmvvdhky3pnc2"]
+[gd_scene load_steps=2 format=3 uid="uid://c7rhcrjsm6pt2"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_xg6s0"]
 
@@ -6,25 +6,42 @@
 position = Vector2(952, 536)
 script = ExtResource("1_xg6s0")
 
-[node name="PlayButton" type="Button" parent="."]
-offset_left = -192.0
-offset_top = -256.0
-offset_right = 192.0
-offset_bottom = -64.0
+[node name="Node" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="Node"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Node/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="PlayButton" type="Button" parent="Node/Control/BoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Button to play the Game."
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="."]
-offset_left = -192.0
-offset_top = 64.0
-offset_right = 192.0
-offset_bottom = 256.0
+[node name="QuitButton" type="Button" parent="Node/Control/BoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Button to quit the Game."
 text = "Quit"
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Node/Control/BoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Node/Control/BoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
