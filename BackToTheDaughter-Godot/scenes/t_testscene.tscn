@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0nwqeq7nsple"]
+[gd_scene load_steps=4 format=3 uid="uid://c0nwqeq7nsple"]
 
 [ext_resource type="PackedScene" uid="uid://dr3cqb6ix1h4i" path="res://objects/DraggableObject.tscn" id="1_ytxlf"]
+[ext_resource type="PackedScene" uid="uid://b8f1tvm5p52cc" path="res://objects/DropArea.tscn" id="2_qih7r"]
+[ext_resource type="Script" path="res://scripts/DropArea.gd" id="3_c31k1"]
 
 [node name="T_TestScene" type="Node2D"]
 
@@ -8,4 +10,10 @@
 zoom = Vector2(0.5, 0.5)
 
 [node name="DraggableObject" parent="." instance=ExtResource("1_ytxlf")]
+z_index = 1
 position = Vector2(-877, -162)
+drag = true
+
+[node name="DropArea" parent="." instance=ExtResource("2_qih7r")]
+position = Vector2(745, 319)
+script = ExtResource("3_c31k1")
