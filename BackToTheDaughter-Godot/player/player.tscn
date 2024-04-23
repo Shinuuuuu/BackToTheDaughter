@@ -1,0 +1,221 @@
+[gd_scene load_steps=28 format=3 uid="uid://bctg4hxy5gpk2"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_5x1qq"]
+[ext_resource type="Texture2D" uid="uid://dwe436ah4mck8" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle1.png" id="2_wv7x6"]
+[ext_resource type="Texture2D" uid="uid://dm7jgwqpkkllk" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle2.png" id="3_gxveu"]
+[ext_resource type="Texture2D" uid="uid://5g7crej66285" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle3.png" id="4_b717c"]
+[ext_resource type="Texture2D" uid="uid://bk1aa54ht8u43" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle4.png" id="5_danhb"]
+[ext_resource type="Texture2D" uid="uid://14mgxjb4drmv" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle5.png" id="6_g2eab"]
+[ext_resource type="Texture2D" uid="uid://s1sa0o1abyf" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle6.png" id="7_k7he6"]
+[ext_resource type="Texture2D" uid="uid://dg6rqnfgdg1nv" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-jump/player-jump1.png" id="8_vuqp4"]
+[ext_resource type="Texture2D" uid="uid://cji2d6xm2di2r" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-jump/player-jump2.png" id="9_bda0u"]
+[ext_resource type="Texture2D" uid="uid://wyj1a2sci46m" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run1.png" id="10_16r56"]
+[ext_resource type="Texture2D" uid="uid://127xflsdnecx" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run2.png" id="11_pn3nx"]
+[ext_resource type="Texture2D" uid="uid://f44sn71jrtm0" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run3.png" id="12_1n47t"]
+[ext_resource type="Texture2D" uid="uid://bdjnxhwm6xrxg" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run4.png" id="13_vb01h"]
+[ext_resource type="Texture2D" uid="uid://ds7y118132uuk" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run5.png" id="14_nf4wi"]
+[ext_resource type="Texture2D" uid="uid://d23rl04g7lvfk" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/player-run/player-run6.png" id="15_ssx7x"]
+[ext_resource type="Texture2D" uid="uid://cckivfjp0htua" path="res://assets/Super Grotto Escape Files/Characters/Player/spritesheets/player-duck.png" id="16_cvife"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efkjx"]
+height = 34.6667
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e54qj"]
+atlas = ExtResource("16_cvife")
+region = Rect2(0, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqnpj"]
+atlas = ExtResource("16_cvife")
+region = Rect2(32, 0, 32, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gx7d"]
+atlas = ExtResource("16_cvife")
+region = Rect2(64, 0, 32, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqvcx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wv7x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gxveu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b717c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_danhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g2eab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k7he6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vuqp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bda0u")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_16r56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pn3nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1n47t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vb01h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nf4wi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ssx7x")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e54qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqnpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gx7d")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_26nc3"]
+resource_name = "Run"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_vxeow"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_umklm"]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id="Animation_j5spo"]
+resource_name = "Duck"
+
+[sub_resource type="Animation" id="Animation_esxwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_einud"]
+_data = {
+"Duck": SubResource("Animation_j5spo"),
+"Idle": SubResource("Animation_vxeow"),
+"Jump": SubResource("Animation_umklm"),
+"RESET": SubResource("Animation_esxwj"),
+"Run": SubResource("Animation_26nc3")
+}
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(248, 248)
+scale = Vector2(3, 3)
+script = ExtResource("1_5x1qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_efkjx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1.66666)
+sprite_frames = SubResource("SpriteFrames_oqvcx")
+animation = &"Run"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.605, 1.605)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_einud")
+}
+autoplay = "Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../AnimationPlayer")

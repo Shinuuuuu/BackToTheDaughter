@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnrj8056wnxwu"]
+
+[ext_resource type="PackedScene" uid="uid://bctg4hxy5gpk2" path="res://player/player.tscn" id="1_3ubme"]
+[ext_resource type="Texture2D" uid="uid://ck61bgab537ba" path="res://assets/Super Grotto Escape Files/Environment/Layers/tiledemo.png" id="2_3ay8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5ran"]
+size = Vector2(1920.5, 87.25)
+
+[node name="b2d_world_shinu" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3ubme")]
+position = Vector2(96, 968)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(960.25, 1066.63)
+shape = SubResource("RectangleShape2D_j5ran")
+
+[node name="Tiledemo" type="Sprite2D" parent="."]
+position = Vector2(960, 816)
+scale = Vector2(1.84615, 2.35417)
+texture = ExtResource("2_3ay8c")

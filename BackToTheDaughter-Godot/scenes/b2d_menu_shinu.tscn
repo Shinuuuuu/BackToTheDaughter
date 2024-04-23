@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmvvdhky3pnc2"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_xg6s0"]
+
+[node name="b2d_menu_shinu" type="Node2D"]
+position = Vector2(952, 536)
+script = ExtResource("1_xg6s0")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = -192.0
+offset_top = -256.0
+offset_right = 192.0
+offset_bottom = -64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Button to play the Game."
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = -192.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 256.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Button to quit the Game."
+text = "Quit"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
