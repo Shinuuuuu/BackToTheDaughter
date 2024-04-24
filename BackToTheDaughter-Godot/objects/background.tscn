@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbtrr14nnnapi"]
+
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_gdde5"]
+[ext_resource type="Texture2D" uid="uid://dqdm6rkg8m4gc" path="res://assets/Super Grotto Escape Files/Environment/Layers/back.png" id="1_vedqo"]
+[ext_resource type="Texture2D" uid="uid://bo4vdvrsik8yg" path="res://assets/Super Grotto Escape Files/Environment/Layers/far.png" id="3_1c286"]
+[ext_resource type="Texture2D" uid="uid://bubtf7e6vkm5h" path="res://assets/Super Grotto Escape Files/Environment/Layers/middle.png" id="4_j2ccr"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_gdde5")
+
+[node name="ParallaxLayer_Back" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer_Back"]
+position = Vector2(576, 324)
+scale = Vector2(3.78947, 2.7)
+texture = ExtResource("1_vedqo")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer_Far" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Far" type="Sprite2D" parent="ParallaxLayer_Far"]
+position = Vector2(352, 408)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1c286")
+metadata/_edit_lock_ = true
+
+[node name="Far2" type="Sprite2D" parent="ParallaxLayer_Far"]
+position = Vector2(1056, 408)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1c286")
+metadata/_edit_lock_ = true
+
+[node name="Far3" type="Sprite2D" parent="ParallaxLayer_Far"]
+position = Vector2(1760, 408)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1c286")
+metadata/_edit_lock_ = true
+
+[node name="Far4" type="Sprite2D" parent="ParallaxLayer_Far"]
+position = Vector2(2464, 408)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1c286")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer_Middle" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer_Middle"]
+position = Vector2(576, 324)
+scale = Vector2(3.13043, 2.7)
+texture = ExtResource("4_j2ccr")

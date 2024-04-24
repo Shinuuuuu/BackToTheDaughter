@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://bctg4hxy5gpk2"]
+[gd_scene load_steps=29 format=3 uid="uid://bctg4hxy5gpk2"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_5x1qq"]
+[ext_resource type="Script" path="res://player.gd" id="1_5x1qq"]
 [ext_resource type="Texture2D" uid="uid://dwe436ah4mck8" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle1.png" id="2_wv7x6"]
 [ext_resource type="Texture2D" uid="uid://dm7jgwqpkkllk" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle2.png" id="3_gxveu"]
 [ext_resource type="Texture2D" uid="uid://5g7crej66285" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle3.png" id="4_b717c"]
@@ -106,10 +106,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_26nc3"]
-resource_name = "Run"
-length = 0.55
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_j5spo"]
+resource_name = "Duck"
+
+[sub_resource type="Animation" id="Animation_h2cq6"]
+resource_name = "Fall"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -120,7 +121,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Run"]
+"values": [&"Jump"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -129,10 +130,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_vxeow"]
@@ -166,9 +167,30 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_umklm"]
 resource_name = "Jump"
-
-[sub_resource type="Animation" id="Animation_j5spo"]
-resource_name = "Duck"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_esxwj"]
 length = 0.001
@@ -185,9 +207,39 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_26nc3"]
+resource_name = "Run"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_einud"]
 _data = {
 "Duck": SubResource("Animation_j5spo"),
+"Fall": SubResource("Animation_h2cq6"),
 "Idle": SubResource("Animation_vxeow"),
 "Jump": SubResource("Animation_umklm"),
 "RESET": SubResource("Animation_esxwj"),
@@ -205,11 +257,12 @@ shape = SubResource("CapsuleShape2D_efkjx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1.66666)
 sprite_frames = SubResource("SpriteFrames_oqvcx")
-animation = &"Run"
+animation = &"Idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.605, 1.605)
+position = Vector2(74.6667, -26.6667)
+zoom = Vector2(0.98, 0.98)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7rhcrjsm6pt2"]
+[gd_scene load_steps=3 format=3 uid="uid://c7rhcrjsm6pt2"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_xg6s0"]
+[ext_resource type="PackedScene" uid="uid://cbtrr14nnnapi" path="res://objects/background.tscn" id="2_18tsf"]
 
 [node name="b2d_menu_shinu" type="Node2D"]
 position = Vector2(952, 536)
@@ -42,6 +43,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Button to quit the Game."
 text = "Quit"
+
+[node name="Background" parent="." instance=ExtResource("2_18tsf")]
 
 [connection signal="pressed" from="Node/Control/BoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Node/Control/BoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

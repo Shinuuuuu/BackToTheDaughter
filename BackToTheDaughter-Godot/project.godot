@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BackToTheDaughter"
-run/main_scene="res://scenes/t_testscene.tscn"
+run/main_scene="res://scenes/b2d_menu_shinu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
