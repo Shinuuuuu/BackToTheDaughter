@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://b18fdrh1cihq"]
+
+[ext_resource type="Script" path="res://scripts/enemy_crab.gd" id="1_r2frb"]
+[ext_resource type="Texture2D" uid="uid://dy7k0pkxn7dew" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Idle/crab-idle1.png" id="1_y8fo0"]
+[ext_resource type="Texture2D" uid="uid://brsre5v50iqqs" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Idle/crab-idle2.png" id="2_qfjx8"]
+[ext_resource type="Texture2D" uid="uid://f6q7f2guotsq" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Idle/crab-idle3.png" id="3_a5e5a"]
+[ext_resource type="Texture2D" uid="uid://ha5om7ugmca1" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Idle/crab-idle4.png" id="4_4qn2o"]
+[ext_resource type="Texture2D" uid="uid://bsdcqn0vrktvk" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk1.png" id="5_ifsbe"]
+[ext_resource type="Texture2D" uid="uid://h57m22t2drh6" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk2.png" id="6_w1f08"]
+[ext_resource type="Texture2D" uid="uid://do3muqaulyrdg" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk3.png" id="7_mjwwb"]
+[ext_resource type="Texture2D" uid="uid://b4pmwdiuu7bwi" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk4.png" id="8_n1shs"]
+[ext_resource type="Texture2D" uid="uid://5iuwdp8tnosd" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk5.png" id="9_wovxd"]
+[ext_resource type="Texture2D" uid="uid://b3cm1shkipbss" path="res://assets/Super Grotto Escape Files/Characters/Enemies/sprites/Walk/crab-walk6.png" id="10_jnj83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b54c7"]
+size = Vector2(38.9292, 23.0085)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi2py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y8fo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qfjx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a5e5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4qn2o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ifsbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w1f08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mjwwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n1shs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wovxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jnj83")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wha5t"]
+radius = 198.131
+
+[node name="Enemy_Crab" type="CharacterBody2D"]
+position = Vector2(213, 330)
+scale = Vector2(7.16685, 6.38894)
+script = ExtResource("1_r2frb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0697632, 5.39995)
+shape = SubResource("RectangleShape2D_b54c7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.558125, 0.782602)
+sprite_frames = SubResource("SpriteFrames_fi2py")
+animation = &"Idle"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_wha5t")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

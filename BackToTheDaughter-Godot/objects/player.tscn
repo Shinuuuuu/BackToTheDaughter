@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bctg4hxy5gpk2"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_5x1qq"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_k4038"]
 [ext_resource type="Texture2D" uid="uid://dwe436ah4mck8" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle1.png" id="2_wv7x6"]
 [ext_resource type="Texture2D" uid="uid://dm7jgwqpkkllk" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle2.png" id="3_gxveu"]
 [ext_resource type="Texture2D" uid="uid://5g7crej66285" path="res://assets/Super Grotto Escape Files/Characters/Player/sprites/Player-idle/player-idle3.png" id="4_b717c"]
@@ -249,7 +249,7 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(248, 248)
 scale = Vector2(3, 3)
-script = ExtResource("1_5x1qq")
+script = ExtResource("1_k4038")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_efkjx")
@@ -263,6 +263,8 @@ frame = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74.6667, -26.6667)
 zoom = Vector2(0.98, 0.98)
+limit_left = 0
+limit_top = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

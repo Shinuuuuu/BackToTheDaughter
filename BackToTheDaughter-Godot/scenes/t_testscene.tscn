@@ -11,7 +11,7 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="DraggableObject" parent="." instance=ExtResource("1_ytxlf")]
 z_index = 1
-position = Vector2(-877, -162)
+position = Vector2(-778, -182)
 drag = true
 
 [node name="DropArea" parent="." instance=ExtResource("2_qih7r")]

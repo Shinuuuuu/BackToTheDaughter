@@ -20,7 +20,7 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer_Far" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(2304, 0)
+motion_mirroring = Vector2(2816, 0)
 
 [node name="Far" type="Sprite2D" parent="ParallaxLayer_Far"]
 position = Vector2(352, 408)
